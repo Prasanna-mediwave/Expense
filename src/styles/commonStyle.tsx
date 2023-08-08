@@ -1,3 +1,5 @@
+import {StyleSheet} from 'react-native';
+
 export const color = {
   primaryContant: '#fff',
   primaryHeader: '#ffffff',
@@ -10,4 +12,8 @@ export const color = {
   incomeColor: '#005257',
   expensColor: '#B91D1D',
 };
-export const varelaFont = 'Varela-Regular';
+export const fontStyles = StyleSheet.create({
+  font: {
+    fontFamily: 'Varela-Regular',
+  },
+});

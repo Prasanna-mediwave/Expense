@@ -1,11 +1,11 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {Landing} from '../screens/Landing';
+import {Landing} from '../screens/Landing/Landing';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Summary} from '../screens/Summary';
-import {AddExpense} from '../screens/AddExpense';
-import {Statistics} from '../screens/Statistics';
-import {Setting} from '../screens/Setting';
+import {Summary} from '../screens/Summary/Summary';
+import {AddExpense} from '../screens/AddExpense/AddExpense';
+import {Statistics} from '../screens/Statistics/Statistics';
+import {Setting} from '../screens/Settingpage/Setting';
 import HomeIcon from '../assets/icons/HomeIcon';
 import MarketIcon from '../assets/icons/MarketIcon';
 import MoneyIcon from '../assets/icons/MoneyIcon';
@@ -13,10 +13,12 @@ import AddIcon from '../assets/icons/AddIcon';
 import SettingIcon from '../assets/icons/SettingIcon';
 import {tabStyle} from './style';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Category} from '../screens/Category';
-import {Filter} from '../screens/Filter';
+import {Category} from '../screens/Category/Category';
+import {Filter} from '../screens/Filter/Filter';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import {Account} from '../screens/Account';
+import {Account} from '../screens/Account/Account';
+import {View} from 'react-native';
+import {color} from '../styles/commonStyle';
 
 // Botton Tab Navigation//
 const Tab = createBottomTabNavigator();
@@ -24,17 +26,64 @@ const Tab = createBottomTabNavigator();
 const screenOptions = ({route}: any) => ({
   tabBarShowLabel: false,
   headerShown: false,
-  tabBarIcon: () => {
+  tabBarIcon: ({focused}: any) => {
     if (route.name === 'Home') {
-      return <HomeIcon />;
+      return (
+        <View style={focused ? tabStyle.selectedBtn : undefined}>
+          <View>
+            {focused ? (
+              <HomeIcon fillColor={color.primaryHeader} />
+            ) : (
+              <HomeIcon />
+            )}
+          </View>
+        </View>
+      );
     } else if (route.name === 'Summary') {
-      return <MarketIcon />;
+      return (
+        <View style={focused ? tabStyle.selectedBtn : undefined}>
+          <View>
+            {focused ? (
+              <MarketIcon fillColor={color.primaryHeader} />
+            ) : (
+              <MarketIcon />
+            )}
+          </View>
+        </View>
+      );
     } else if (route.name === 'AddExpense') {
-      return <AddIcon />;
+      return (
+        <View style={tabStyle.addContainer}>
+          <View
+            style={focused ? [tabStyle.addBtn, tabStyle.add] : tabStyle.addBtn}>
+            <AddIcon />
+          </View>
+        </View>
+      );
     } else if (route.name === 'Statistics') {
-      return <MoneyIcon />;
+      return (
+        <View style={focused ? tabStyle.selectedBtn : undefined}>
+          <View>
+            {focused ? (
+              <MoneyIcon fillColor={color.primaryHeader} />
+            ) : (
+              <MoneyIcon />
+            )}
+          </View>
+        </View>
+      );
     } else if (route.name === 'Setting') {
-      return <SettingIcon />;
+      return (
+        <View style={focused ? tabStyle.selectedBtn : undefined}>
+          <View>
+            {focused ? (
+              <SettingIcon fillColor={color.primaryHeader} />
+            ) : (
+              <SettingIcon />
+            )}
+          </View>
+        </View>
+      );
     }
   },
   tabBarStyle: tabStyle.tabStyle,

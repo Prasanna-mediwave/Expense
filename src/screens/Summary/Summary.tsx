@@ -1,6 +1,6 @@
 import React from 'react';
 import {Pressable, Text} from 'react-native';
-import {Background} from '../components/background/Background';
+import {Background} from '../../components/background/Background';
 
 interface SummaryProps {}
 
