@@ -26,6 +26,7 @@ const Tab = createBottomTabNavigator();
 const screenOptions = ({route}: any) => ({
   tabBarShowLabel: false,
   headerShown: false,
+  tabBarHideOnKeyboard: true,
   tabBarIcon: ({focused}: any) => {
     if (route.name === 'Home') {
       return (

@@ -4,14 +4,27 @@ import Svg, {Rect, G, Path} from 'react-native-svg';
 function SalaryIcon(props: any) {
   return (
     <Svg
-      width={48}
+      width={props.size ? props.size : 48}
       height={48}
       viewBox="0 0 48 48"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...props}>
-      <Rect width={48} height={48} rx={24} fill="#7DD15F" fillOpacity={0.2} />
-      <Rect x={4} y={4} width={40} height={40} rx={20} fill="#7DD15F" />
+      <Rect
+        width={48}
+        height={48}
+        rx={24}
+        fill={props.color ? props.color : '#7DD15F'}
+        fillOpacity={0.2}
+      />
+      <Rect
+        x={4}
+        y={4}
+        width={40}
+        height={40}
+        rx={20}
+        fill={props.color ? props.color : '#7DD15F'}
+      />
       <G fill="#fff">
         <Path d="M20.866 27.928c.061.057.166.083.233.057l13.848-5.402c.067-.026.07-.094.009-.152l-6.821-6.363c-.062-.058-.167-.084-.234-.058l-13.848 5.403c-.067.026-.07.094-.01.152l6.823 6.363zm-4.494-6.396l10.757-4.197c.427.398 1.147.576 1.607.396l3.952 3.686c-.46.18-.487.648-.06 1.047l-10.757 4.197c-.427-.398-1.146-.576-1.607-.397l-3.952-3.686c.46-.18.487-.648.06-1.046z" />
         <Path d="M34.596 23.101L21.16 28.343a.328.328 0 01-.12.022.432.432 0 01-.289-.113l-6.384-5.955-.314.123c-.067.026-.07.094-.01.152l6.823 6.363c.061.057.166.083.233.057l13.848-5.403c.067-.026.07-.093.009-.151l-.36-.337z" />

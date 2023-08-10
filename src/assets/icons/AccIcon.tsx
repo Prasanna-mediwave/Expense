@@ -4,13 +4,13 @@ import Svg, {G, Rect, Path} from 'react-native-svg';
 function AccIcon(props: any) {
   return (
     <Svg
-      width={48}
+      width={props.size ? props.size : 48}
       height={48}
       viewBox="0 0 48 48"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...props}>
-      <G fill="#3AE2C4">
+      <G fill={props.color ? props.color : '#3AE2C4'}>
         <Rect width={48} height={48} rx={24} fillOpacity={0.2} />
         <Rect x={4} y={4} width={40} height={40} rx={20} />
       </G>

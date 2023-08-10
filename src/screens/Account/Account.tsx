@@ -1,9 +1,7 @@
 import React from 'react';
 import {Text, View} from 'react-native';
 
-interface AccountProps {}
-
-export const Account: React.FC<AccountProps> = ({}) => {
+export const Account = () => {
   return (
     <View>
       <Text>Account</Text>

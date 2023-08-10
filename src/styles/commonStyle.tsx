@@ -11,6 +11,8 @@ export const color = {
   dynastyGreenText: '#08979D',
   incomeColor: '#005257',
   expensColor: '#B91D1D',
+  calenderoutline: '#2A96A233',
+  placeHolderTextColor: 'rgba(0, 0, 0, 0.37)',
 };
 export const fontStyles = StyleSheet.create({
   font: {

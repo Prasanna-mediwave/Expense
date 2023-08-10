@@ -1,5 +1,5 @@
 import React from 'react';
-import {Pressable, Text, View} from 'react-native';
+import {TouchableOpacity, Text, View} from 'react-native';
 import {Background} from '../../components/background/Background';
 import {useNavigation} from '@react-navigation/native';
 import MenuIcon from '../../assets/icons/MenuIcone';
@@ -13,9 +13,7 @@ import ReminderIcon from '../../assets/icons/ReminderIcon';
 import {landingStyles} from './style';
 import {color, fontStyles} from '../../styles/commonStyle';
 
-interface LandingProps {}
-
-export const Landing: React.FC<LandingProps> = ({}) => {
+export const Landing = () => {
   const navigation: any = useNavigation();
 
   return (
@@ -33,9 +31,9 @@ export const Landing: React.FC<LandingProps> = ({}) => {
           <View>
             <BellIcon />
           </View>
-          <Pressable onPress={() => navigation.openDrawer()}>
+          <TouchableOpacity onPress={() => navigation.openDrawer()}>
             <MenuIcon />
-          </Pressable>
+          </TouchableOpacity>
         </View>
       </View>
       <View>
@@ -50,9 +48,9 @@ export const Landing: React.FC<LandingProps> = ({}) => {
       </View>
       <View style={landingStyles.calendarContainer}>
         <View style={landingStyles.monthContainer}>
-          <Pressable style={{transform: [{rotate: '180deg'}]}}>
+          <TouchableOpacity style={{transform: [{rotate: '180deg'}]}}>
             <ArrowIcon />
-          </Pressable>
+          </TouchableOpacity>
           <Text
             style={[
               landingStyles.textColor,
@@ -61,13 +59,13 @@ export const Landing: React.FC<LandingProps> = ({}) => {
             ]}>
             June 2023
           </Text>
-          <Pressable>
+          <TouchableOpacity>
             <ArrowIcon />
-          </Pressable>
+          </TouchableOpacity>
         </View>
-        <Pressable style={landingStyles.canlenderStyle}>
+        <TouchableOpacity style={landingStyles.canlenderStyle}>
           <CalendarIcon />
-        </Pressable>
+        </TouchableOpacity>
       </View>
       <View style={landingStyles.moneyContainer}>
         <CardLayout>
@@ -135,7 +133,7 @@ export const Landing: React.FC<LandingProps> = ({}) => {
         </Text>
       </View>
       <View style={landingStyles.addOptionContainer}>
-        <Pressable style={landingStyles.OptionWidth}>
+        <TouchableOpacity style={landingStyles.OptionWidth}>
           <CardLayout>
             <View style={landingStyles.optionContainer}>
               <PigIcon />
@@ -144,8 +142,8 @@ export const Landing: React.FC<LandingProps> = ({}) => {
               </Text>
             </View>
           </CardLayout>
-        </Pressable>
-        <Pressable style={landingStyles.OptionWidth}>
+        </TouchableOpacity>
+        <TouchableOpacity style={landingStyles.OptionWidth}>
           <CardLayout>
             <View style={landingStyles.optionContainer}>
               <ReminderIcon />
@@ -154,7 +152,7 @@ export const Landing: React.FC<LandingProps> = ({}) => {
               </Text>
             </View>
           </CardLayout>
-        </Pressable>
+        </TouchableOpacity>
       </View>
     </Background>
   );

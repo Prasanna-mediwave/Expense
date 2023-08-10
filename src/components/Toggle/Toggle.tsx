@@ -1,5 +1,5 @@
 import React from 'react';
-import {Pressable, Text, View} from 'react-native';
+import {TouchableOpacity, Text, View} from 'react-native';
 import BackArrow from '../../assets/icons/BackArrow';
 import {toggleStyle} from './style';
 import {color, fontStyles} from '../../styles/commonStyle';
@@ -21,9 +21,9 @@ const Toggle: React.FC<ToggleCompProps> = ({
     <>
       <View style={toggleStyle.toggleHeaderContainer}>
         {back ? (
-          <Pressable style={back ? toggleStyle.backBtn : null}>
+          <TouchableOpacity style={back ? toggleStyle.backBtn : null}>
             <BackArrow />
-          </Pressable>
+          </TouchableOpacity>
         ) : null}
         <Text
           style={
@@ -39,7 +39,7 @@ const Toggle: React.FC<ToggleCompProps> = ({
         </Text>
       </View>
       <View style={toggleStyle.toggleContainer}>
-        <Pressable
+        <TouchableOpacity
           onPress={() => {
             setToggel(true);
           }}
@@ -60,8 +60,8 @@ const Toggle: React.FC<ToggleCompProps> = ({
             ]}>
             Expenses
           </Text>
-        </Pressable>
-        <Pressable
+        </TouchableOpacity>
+        <TouchableOpacity
           onPress={() => {
             setToggel(false);
           }}
@@ -82,7 +82,7 @@ const Toggle: React.FC<ToggleCompProps> = ({
             ]}>
             Income
           </Text>
-        </Pressable>
+        </TouchableOpacity>
       </View>
     </>
   );
