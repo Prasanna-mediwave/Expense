@@ -98,7 +98,6 @@ const Expense = ({toggle, navigation}: any) => {
             style={expenseStyle.addCategoryBtn}
             onPress={() => {
               navigation.navigate('Category');
-              console.log('true');
             }}>
             <Text style={[expenseStyle.addCategoryBtnText, fontStyles.font]}>
               Add new category

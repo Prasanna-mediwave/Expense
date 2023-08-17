@@ -59,14 +59,14 @@ export const expenseStyle = StyleSheet.create({
     marginRight: 10,
   },
   btnSubmit: {
-    backgroundColor: '#08979D',
+    backgroundColor: color.dynastyGreenText,
     padding: 15,
     borderRadius: 40,
     marginBottom: 20,
   },
   addSubmitText: {
     textAlign: 'center',
-    color: '#fff',
+    color: color.primaryContant,
     fontSize: 20,
   },
 });
