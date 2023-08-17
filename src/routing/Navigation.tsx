@@ -13,8 +13,8 @@ import AddIcon from '../assets/icons/AddIcon';
 import SettingIcon from '../assets/icons/SettingIcon';
 import {tabStyle} from './style';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Category} from '../screens/Category/Category';
-import {Filter} from '../screens/Filter/Filter';
+import {Category} from '../screens/ModulerScreen/Category/Category';
+import {Filter} from '../screens/ModulerScreen/Filter/Filter';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {Account} from '../screens/Account/Account';
 import {View} from 'react-native';
@@ -113,7 +113,15 @@ function StackGroup() {
         component={TabScreen}
         options={{headerShown: false}}
       />
-      <Stack.Screen name="Category" component={Category} />
+      <Stack.Screen
+        name="Category"
+        component={Category}
+        options={{
+          animation: 'slide_from_bottom',
+          headerShown: false,
+          presentation: 'containedTransparentModal',
+        }}
+      />
       <Stack.Screen name="Filter" component={Filter} />
     </Stack.Navigator>
   );

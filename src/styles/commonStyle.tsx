@@ -13,7 +13,9 @@ export const color = {
   expensColor: '#B91D1D',
   calenderoutline: '#2A96A233',
   placeHolderTextColor: 'rgba(0, 0, 0, 0.37)',
+  catBackground: 'rgba(0, 0, 0, 0.5)',
 };
+
 export const fontStyles = StyleSheet.create({
   font: {
     fontFamily: 'Varela-Regular',

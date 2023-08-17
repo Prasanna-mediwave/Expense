@@ -5,7 +5,7 @@ import {StyleSheet, View} from 'react-native';
 import CardLayout from '../../components/CardLayout/CardLayout';
 import Expense from './Expense/Expense';
 
-export const AddExpense = () => {
+export const AddExpense = ({navigation}: any) => {
   const [toggle, setToggel] = useState(true);
 
   return (
@@ -18,7 +18,7 @@ export const AddExpense = () => {
       />
       <View style={style.expenseContainer}>
         <CardLayout>
-          <Expense toggle={toggle} />
+          <Expense toggle={toggle} navigation={navigation} />
         </CardLayout>
       </View>
     </Background>

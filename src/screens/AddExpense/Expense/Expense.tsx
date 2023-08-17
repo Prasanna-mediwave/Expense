@@ -9,7 +9,7 @@ import {TextInput} from 'react-native-gesture-handler';
 import {DropDown} from '../../../components/DropDown/DropDown';
 import AddIcon from '../../../assets/icons/AddIcon';
 
-const Expense = ({toggle}: any) => {
+const Expense = ({toggle, navigation}: any) => {
   const {
     control,
     handleSubmit,
@@ -94,7 +94,12 @@ const Expense = ({toggle}: any) => {
           </Text>
         )}
         <View style={expenseStyle.addCategoryContainer}>
-          <TouchableOpacity style={expenseStyle.addCategoryBtn}>
+          <TouchableOpacity
+            style={expenseStyle.addCategoryBtn}
+            onPress={() => {
+              navigation.navigate('Category');
+              console.log('true');
+            }}>
             <Text style={[expenseStyle.addCategoryBtnText, fontStyles.font]}>
               Add new category
             </Text>
