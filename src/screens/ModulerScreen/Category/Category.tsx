@@ -1,10 +1,7 @@
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
-import {Text, Pressable, TouchableOpacity, View} from 'react-native';
-// import CloseIcon from '../../../assets/icons/CloseIcon';
+import {Text, Pressable, TouchableOpacity, View, TextInput} from 'react-native';
 import {modulerStyle} from '../style';
-// import {expenseStyle} from '../../AddExpense/Expense/style';
-// import {fontStyles} from '../../../styles/commonStyle';
 import Animated, {
   FadeIn,
   FadeOut,
@@ -14,6 +11,9 @@ import Animated, {
 import CloseIcon from '../../../assets/icons/CloseIcon';
 import {expenseStyle} from '../../AddExpense/Expense/style';
 import {fontStyles} from '../../../styles/commonStyle';
+import {Controller, useForm} from 'react-hook-form';
+import {DropDown} from '../../../components/DropDown/DropDown';
+import {Color, IconCategory} from '../../../assets/data/Data';
 
 export const Category = () => {
   const navigation = useNavigation();
@@ -25,6 +25,19 @@ export const Category = () => {
   // }, [navigation]);
 
   const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
+  const {
+    control,
+    handleSubmit,
+    formState: {errors},
+  } = useForm({
+    defaultValues: {
+      categoryTitle: '',
+      Icon: '',
+      Color: '',
+    },
+  });
+
+  const onSubmit = ({data}: any) => console.log(data);
 
   return (
     <>
@@ -39,7 +52,7 @@ export const Category = () => {
         entering={SlideInDown}
         exiting={SlideOutDown}>
         <View style={modulerStyle.moduleContainer}>
-          <View style={modulerStyle.innerContainer}>
+          <View style={[modulerStyle.innerContainer]}>
             <TouchableOpacity
               style={modulerStyle.closeBtn}
               onPress={() => {
@@ -51,19 +64,87 @@ export const Category = () => {
               <Text style={[expenseStyle.header, fontStyles.font]}>
                 Category title
               </Text>
+              <Controller
+                control={control}
+                rules={{
+                  required: true,
+                }}
+                render={({field: {onChange, onBlur, value}}) => (
+                  <TextInput
+                    value={value}
+                    onChangeText={onChange}
+                    onBlur={onBlur}
+                    style={[
+                      expenseStyle.inputText,
+                      expenseStyle.palceholderText,
+                      fontStyles.font,
+                    ]}
+                    placeholder="Enter the category title"
+                    placeholderTextColor="grey"
+                  />
+                )}
+                name="categoryTitle"
+              />
+              {errors.categoryTitle && (
+                <Text style={[expenseStyle.errorMessage, fontStyles.font]}>
+                  Cateogry Title is required.
+                </Text>
+              )}
             </View>
             <View style={modulerStyle.fieldContainer}>
               <Text style={[expenseStyle.header, fontStyles.font]}>
                 Choose icon
               </Text>
+              <Controller
+                control={control}
+                rules={{
+                  required: true,
+                }}
+                render={({field: {onChange, onBlur}}) => (
+                  <DropDown
+                    onChange={onChange}
+                    onBlur={onBlur}
+                    data={IconCategory}
+                    placeHolder="Choose icon"
+                  />
+                )}
+                name="Icon"
+              />
+              {errors.Icon && (
+                <Text style={[expenseStyle.errorMessage, fontStyles.font]}>
+                  Choose icon is required.
+                </Text>
+              )}
             </View>
             <View style={modulerStyle.fieldContainer}>
               <Text style={[expenseStyle.header, fontStyles.font]}>
                 Choose color
               </Text>
+              <Controller
+                control={control}
+                rules={{
+                  required: true,
+                }}
+                render={({field: {onChange, onBlur}}) => (
+                  <DropDown
+                    onChange={onChange}
+                    onBlur={onBlur}
+                    data={Color}
+                    placeHolder="Choose color"
+                  />
+                )}
+                name="Color"
+              />
+              {errors.Color && (
+                <Text style={[expenseStyle.errorMessage, fontStyles.font]}>
+                  color is required.
+                </Text>
+              )}
             </View>
             <View>
-              <TouchableOpacity style={expenseStyle.btnSubmit}>
+              <TouchableOpacity
+                style={expenseStyle.btnSubmit}
+                onPress={handleSubmit(onSubmit)}>
                 <Text style={expenseStyle.addSubmitText}>Add Category</Text>
               </TouchableOpacity>
             </View>

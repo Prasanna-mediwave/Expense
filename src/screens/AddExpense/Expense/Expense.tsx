@@ -8,6 +8,7 @@ import {Controller, useForm} from 'react-hook-form';
 import {TextInput} from 'react-native-gesture-handler';
 import {DropDown} from '../../../components/DropDown/DropDown';
 import AddIcon from '../../../assets/icons/AddIcon';
+import {ExpenseCategory, IncomeCategory} from '../../../assets/data/Data';
 
 const Expense = ({toggle, navigation}: any) => {
   const {
@@ -21,6 +22,7 @@ const Expense = ({toggle, navigation}: any) => {
       note: '',
     },
   });
+  const expenseData = toggle ? ExpenseCategory : IncomeCategory;
   const onSubmit = ({data}: any) => console.log(data);
   return (
     <>
@@ -83,7 +85,8 @@ const Expense = ({toggle, navigation}: any) => {
             <DropDown
               onChange={onChange}
               onBlur={onBlur}
-              categoryItem={toggle}
+              data={expenseData}
+              placeHolder="Select category"
             />
           )}
           name="category"
